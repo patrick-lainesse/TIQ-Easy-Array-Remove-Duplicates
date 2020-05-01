@@ -1,4 +1,27 @@
+import java.util.Arrays;
+
 public class Solution {
+    /* Given an array of integers, return indices of the two numbers such that they add up to a specific target.
+    You may assume that each input would have exactly one solution, and you may not use the same element twice. */
+    public static int[] twoSum(int[] nums, int target) {
+        int[] result = new int[2];
+
+        for(int i=0; i<nums.length; i++) {
+            for(int j=0; j<nums.length; j++) {
+                if(nums[i] + nums[j] == target) {
+                    if(i>j) {
+                        result[0] = j;
+                        result[1] = i;
+                    } else {
+                        result[0] = i;
+                        result[1] = j;
+                    }
+                }
+            }
+        }
+        return result;
+    }
+
     public static int removeDuplicates(int[] nums) {
 
         int newLength = 0;
@@ -24,17 +47,10 @@ public class Solution {
 
     public static void main(String[] args) {
 
-        int[] nums1 = {1,1,2};
-        int[] nums2 = {0,0,1,1,1,2,2,3,3,4};
-
-        System.out.println("\nRemove nums1: " + removeDuplicates(nums1));
-        for (int i : nums1) {
-            System.out.printf("%d", i);
-        }
-        System.out.println("\nRemove nums2: " + removeDuplicates(nums2));
-        for (int i : nums2) {
-            System.out.printf("%d", i);
-        }
+        int[] nums = {2, 7, 11, 15};
+        //for(int i=0;i<2;i++) {
+            System.out.println(Arrays.toString(twoSum(nums, 9)));
+        //}
 
     }
 }
